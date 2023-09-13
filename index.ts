@@ -8,7 +8,7 @@ import http from 'http';
 import { createRequire } from 'node:module';
 import bodyParser from 'body-parser';
 const require = createRequire(import.meta.url);
-
+require('yopta');
 const memoEval = memoize(eval);
 
 const app = express();
@@ -27,7 +27,8 @@ DeepClient.resolveDependency = requireWrapper;
 
 const toJSON = (data) => JSON.stringify(data, Object.getOwnPropertyNames(data), 2);
 
-const makeFunction = (code: string) => {
+const makeFunction = (yoptacode: string) => {
+  const code = global.yopta(yoptacode,'yl');
   const fn = memoEval(code);
   if (typeof fn !== 'function')
   {

@@ -1,4 +1,4 @@
-# js-docker-isolation-provider
+# yoptascript-docker-isolation-provider
 
 - `/healthz` - GET - 200 - Health check endpoint
   - Response:

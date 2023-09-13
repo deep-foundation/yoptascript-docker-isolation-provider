@@ -1,7 +1,7 @@
 version: '3.7'
 services:
-  js-docker-isolation-provider:
-    image: deepf/js-docker-isolation-provider:main
+  yoptascript-docker-isolation-provider:
+    image: deepf/yoptascript-docker-isolation-provider:main
     networks:
       - deep
     ports:
