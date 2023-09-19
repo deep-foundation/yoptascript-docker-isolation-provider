@@ -31,6 +31,7 @@ const toJSON = (data) => JSON.stringify(data, Object.getOwnPropertyNames(data), 
 
 const makeFunction = (yoptacode: string) => {
   const code = global.yopta(yoptacode,'yl');
+  console.log(code)
   const fn = memoEval(code);
   if (typeof fn !== 'function')
   {
