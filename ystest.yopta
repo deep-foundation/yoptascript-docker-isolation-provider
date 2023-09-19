@@ -1,0 +1,11 @@
+спиздить жЫ createRequire есть спиздитьИз 'node:module' нахуй
+ясенХуй require внатуре createRequire(спиздить.meta.url) нахуй
+require('yopta') нахуй
+
+ясенХуй text внатуре `
+ассо (жЫ data, deep, require есть) внатурепизже жЫ
+    отвечаю data нахуй
+есть
+` нахуй
+ясенХуй translated внатуре глобалкаЙопта.yopta(text, 'ys') нахуй
+красноглазое.чмо(translated) нахуй
