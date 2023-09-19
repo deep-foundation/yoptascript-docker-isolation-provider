@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 require('yopta');
 const memoEval = memoize(eval);
 
-//const globalAny: any = global;
+const globalAny: any = global;
 
 const app = express();
 
@@ -31,8 +31,8 @@ const toJSON = (data) => JSON.stringify(data, Object.getOwnPropertyNames(data), 
 
 const makeFunction = (yoptacode: string) => {
   console.log('я родился')
-//  const code = globalAny.yopta(yoptacode,'yl');
-  const code = global.yopta(yoptacode,'yl');
+  const code = globalAny.yopta(yoptacode,'yl');
+//  const code = global.yopta(yoptacode,'yl');
   console.log(code)
   const fn = memoEval(code);
   if (typeof fn !== 'function')
