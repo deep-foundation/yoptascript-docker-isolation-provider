@@ -1,21 +1,53 @@
 # yoptascript-docker-isolation-provider
 
-- `/healthz` - GET - 200 - Health check endpoint
-  - Response:
-    - `{}`
-- `/init` - GET - 200 - Initialization endpoint
-  - Response:
-    - `{}`
-- `/call` - GET - 200 - Call executable code of handler in this isolation provider
-  - Request:
-    - body:
+## Как вкатиться нах
+```js
+ассо (жЫ data, deep, require есть) внатурепизже жЫ
+    // твоя поебень
+есть
+```
+
+
+## Инфа о путях
+- `/healthz` - Здоровье чекаем, ебать! Метод GET, и если всё заебок, то 200. В ответ - нихуя
+- `/init` - Это типа начало всего, нах. Опять GET, снова 200, и опять нихуя в ответе.
+- `/call` - Вот тут уже начинается ахтунг, братва! Ебанный GET, и если в теле запроса не сдохло, то 200. А в запросе там херачится тело:
       - params:
-        - jwt: STRING - Deeplinks send this token, for create gql and deep client
-        - code: STRING - Code of handler
-        - data: {} - Data for handler execution from deeplinks
-          > If this is type handler
-          - oldLink - from deeplinks, link before transaction
-          - newLink - from deeplinks, link after transaction
+        - jwt: STRING - Строка, ёпт, диплинки этот токен посылают, чтоб создать gql и deep client.
+        - code: STRING - Ахуеть, опять строка, код хэндлера.
+        - data: {} - Объект, нахуй, данные для хэндлера из диплинков
+          > Если эта хуета - тип хэндера
+          - oldLink - из deeplinks, сылка до транзакции
+          - newLink - из deeplinks, сылка перед транзакцией 
           - promiseId - from deeplinks, promise id
-  - Response:
-    - `{ resolved?: any; rejected?: any; }` - If resolved or rejected is not null, then it's result of execution
+  - В ответе может быть { resolved?: any; rejected?: any; }, и если они не нулевые, то это результат исполнения, нах.
+
+
+## Че за хуйня в параметрах функции
+
+- `deep` - Экземпляр Deep Client, брат.
+- `data` - Данные для выполнения хэндлера из deeplinks, тоже нихера не сложно, брат.
+
+
+## Смари чё можно захуячить
+```js
+ассо (жЫ data, deep, require есть) внатурепизже жЫ
+    отвечаю data нахуй
+есть
+```
+
+```js
+ассо (жЫ data, deep, require есть) внатурепизже жЫ
+    отвечаю сидетьНахуй deep.select(1) нахуй
+есть
+```
+
+```js
+ассо (жЫ data, deep, require есть) внатурепизже жЫ
+    отвечаю сидетьНахуй deep.insert(жЫ
+        "type_id": 58,
+        "from_id": 0,
+        "to_id": 0
+    есть) нахуй
+есть
+```
